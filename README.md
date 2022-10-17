@@ -1,15 +1,15 @@
-# Сервис получения уникальных вопросов для викторин
+# Service for obtaining unique questions for quizzes
 
 question_app
 
-## Описание
+## Description
 
-В POST запросе на адрес API в теле запроса необходимо указать количество
-вопросов, запрашиваемое с внешнего сервера. Необходимое количество уникальных
-вопросов сохранится в базе данных. Ответом на POST запрос служит последний
-сохраненный в БД объект Question.
+In the POST request to the API address in the request body, you must specify the number
+of questions requested from an external server. The required number of unique
+questions will be saved in the database. The answer to the POST request is the last
+Question object saved in the database.
 
-## Технологии
+## Technologies
 
     asyncpg==0.25.0
     fastapi==0.75.2
@@ -21,41 +21,41 @@ question_app
     httpx~=0.22.0
     databases~=0.5.5
 
-## Запуск проекта в dev-режиме
+## Dev-mode run
 
-Клонирование файлов из репозитория прописать в консоли:
+Clone files from the repository to register in the console:
 
     git clone git@gitlab.com:Pavelkalininn/test_task.git
 
 
-### Для централизованного запуска проекта через docker-compose:
-Создайте образы и запустите новые контейнеры в директории с файлом docker-compose.yml:
-Если вы не хотите, чтобы в консоли висел открытый docker-compose, 
-запускайте его как процесс, с опцией -d.
+### For centralized project launch via docker-compose:
+Create images and launch new containers in the directory with the docker-compose file.yml:
+If you don't want an open docker-compose hanging in the console,
+run it as a process, with the -d option.
 
     docker-compose up -d --build
 
-Для остановки контейнеров запустите:
+To install containers, run:
 
     docker-compose down 
 
-После запуска всех контейнеров можно ознакомится документацией на API по адресу:
+After launching all containers, you can read the API documentation at:
 
     http://127.0.0.1:8008/docs   (SWAGGER)
     http://127.0.0.1:8008/redoc/  (REDOC)
 
-## Адрес для POST запросов к API:
+## Address for POST API requests:
 
     http://127.0.0.1:8008/
 
-## Пример POST запроса на адрес http://127.0.0.1:8008/:
-В теле запроса:
+## Example of a POST request to the address http://127.0.0.1:8008/:
+In the request body:
 
     {
         "questions_num": 2
     }
 
-## Пример ответа:
+## Answer:
     
     {
         "id": 2,
@@ -67,7 +67,7 @@ question_app
         "created_date": "2014-02-11"
     }
 
-### Все созданные через API объекты Question сохраняются в БД PostgreSQL. 
+### All the Question objects created via the API are saved in the PostgreSQL database.
 
 
-Автор __Паша Калинин__ pavelkalininn@gmail.com
+Author __Pavel Kalinin__ pavelkalininn@gmail.com
